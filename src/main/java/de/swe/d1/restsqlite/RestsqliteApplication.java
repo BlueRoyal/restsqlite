@@ -8,6 +8,7 @@ public class RestsqliteApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(RestsqliteApplication.class, args);
+        System.out.println("Lets Go Server");
     }
 
 }
