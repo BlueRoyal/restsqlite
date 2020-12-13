@@ -1,4 +1,4 @@
 package de.swe.d1.restsqlite.Models;
 
-public class business {
+public class Beverage {
 }
