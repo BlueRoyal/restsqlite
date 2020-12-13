@@ -4,7 +4,10 @@ import com.sun.istack.NotNull;
 import net.bytebuddy.asm.Advice;
 
 import javax.persistence.*;
+import java.util.List;
 
+@Entity
+@Table(name = "Business")
 public class Business {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,11 +33,15 @@ public class Business {
 
     //Bewertungen
 
-    @OneToMany
-    private Rating rating;
+    /*@OneToMany
+    @JoinColumn(name = "rating", insertable = false, updatable = false)
+    private List<Rating> rating;
 
     //Getränke
     @OneToMany
-    private Beverage beverage;
+    @JoinColumn(name = "beverage", insertable = false, updatable = false)
+    private List<Beverage> beverage;
+*/
+
 }
 

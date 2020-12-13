@@ -2,11 +2,10 @@ package de.swe.d1.restsqlite.Models;
 
 import com.sun.istack.NotNull;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "Beverage")
 public class Beverage {
 
     @Id

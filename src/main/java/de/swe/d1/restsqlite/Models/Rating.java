@@ -4,8 +4,11 @@ package de.swe.d1.restsqlite.Models;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.List;
 
+@Entity
+@Table(name = "Rating")
 public class Rating {
 
     @Id
@@ -21,12 +24,14 @@ public class Rating {
     private double rating;
 
     //Getränke
-    @ManyToOne
-    private List<Beverage> beverage;
+   /* @ManyToOne( cascade = CascadeType.ALL)
+    @JoinColumn(name = "beverage", insertable = false, updatable = false)
+    private Collection<Beverage> beverage;
 
     //Getränke
-    @ManyToOne
+    @ManyToOne( cascade = CascadeType.ALL)
+    @JoinColumn(name = "business", insertable = false, updatable = false)
     private List<Business> business;
-
+*/
 
 }
