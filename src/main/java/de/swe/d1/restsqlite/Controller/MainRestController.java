@@ -4,6 +4,9 @@ import de.swe.d1.restsqlite.Models.Beverage;
 import de.swe.d1.restsqlite.Models.Business;
 import de.swe.d1.restsqlite.Models.Rating;
 import de.swe.d1.restsqlite.Models.User;
+import de.swe.d1.restsqlite.Service.BeverageService;
+import de.swe.d1.restsqlite.Service.BusinessService;
+import de.swe.d1.restsqlite.Service.RatingService;
 import de.swe.d1.restsqlite.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -24,64 +27,81 @@ import java.util.List;
 public class MainRestController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private RatingService ratingService;
+    @Autowired
+    private BusinessService businessService;
+    @Autowired
+    private BeverageService beverageService;
 
-    // User Exists?
+
+    @RequestMapping(value="/user/getAll", method = RequestMethod.GET)
+    public List<User> getAllUser(){
+       return userService.findAll();
+    }
+
+    @RequestMapping(value="/beverage/getAll", method = RequestMethod.GET)
+    public List<Beverage> getAllBeverage(){
+      return beverageService.findAll();
+    }
+
+    @RequestMapping(value="/business/getAll", method = RequestMethod.GET)
+    public List<Business> getAllBusiness(){
+      return businessService.findAll();
+    }
+
+    @RequestMapping(value="/rating/getAll", method = RequestMethod.GET)
+    public List<Rating> getAllRating(){
+        return ratingService.findAll();
+    }
+
     @RequestMapping(value="/user/get/{parameter}", method = RequestMethod.GET)
     public List<User> getUser(@PathVariable("parameter") String parameter){
-        //TODO CODE HERE
-        List<User> lis = null;
-        return lis;
+       return userService.findAllByFilter(parameter);
+
     }
 
     @RequestMapping(value="/beverage/get/{parameter}", method = RequestMethod.GET)
     public List<Beverage> getBeverage(@PathVariable("parameter") String parameter){
-        //TODO CODE HERE
-        List<Beverage> lis = null;
-        return lis;
+        return  beverageService.findAllByFilter(parameter);
     }
 
     @RequestMapping(value="/business/get/{parameter}", method = RequestMethod.GET)
     public List<Business> getBusiness(@PathVariable("parameter") String parameter){
-        //TODO CODE HERE
-        List<Business> lis = null;
-        return lis;
+        return businessService.findAllByFilter(parameter);
     }
 
     @RequestMapping(value="/rating/get/{parameter}", method = RequestMethod.GET)
     public List<Rating> getRating(@PathVariable("parameter") String parameter){
-        //TODO CODE HERE
-        List<Rating> lis = null;
-        return lis;
+        return ratingService.findAllByFilter(parameter);
     }
 
-    //Neuen Benutzer anlegen
-    // BCrypt
+
+    // BCrypt password
     @RequestMapping(value = "/user/add", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     User saveUser(@RequestBody User user){
-        //TODO CODE HERE
-
        return userService.saveUser(user);
     }
 
     //Getränk hinzufügen
     @RequestMapping(value = "/beverage/add", method = RequestMethod.POST)
     Beverage saveBeverage(@RequestBody Beverage beverage){
-        //TODO CODE HERE
-        return new Beverage();
+      return beverageService.saveBeverage(beverage);
     }
 
     //Geschäft hinzufügen
     @RequestMapping(value = "/business/add", method = RequestMethod.POST)
     Business saveBusiness(@RequestBody Business business){
-        //TODO CODE HERE
-        return new Business();
+        return businessService.saveBusiness(business);
     }
 
     //Geschäft hinzufügen
     @RequestMapping(value = "/rating/add", method = RequestMethod.POST)
-    Rating saveRating(@RequestBody Business business){
-        //TODO CODE HERE
-        return new Rating();
+    Rating saveRating(@RequestBody Rating rating){
+        return ratingService.saveRating(rating);
     }
+
+
+    //Löschmethoden ? Wers braucht
 
 }

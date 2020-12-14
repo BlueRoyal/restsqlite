@@ -10,7 +10,7 @@ public interface BeverageService {
 
     List<Beverage> findAll();
     List<Beverage> findAllByFilter( String filter);
-    Beverage deleteById(Integer id);
-    Beverage saveBeverage();
+    void deleteById(Integer id);
+    Beverage saveBeverage(Beverage beverage);
 
 }

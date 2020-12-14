@@ -21,7 +21,6 @@ public class Business {
     @Column(nullable = false)
     private String adress;
 
-
     @NotNull
     @Column(nullable = false)
     private String times;

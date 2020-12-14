@@ -10,5 +10,5 @@ public interface BusinessService {
     List<Business> findAll();
     List<Business> findAllByFilter( String filter);
     Business deleteByName(String name);
-    Business saveBusiness();
+    Business saveBusiness(Business business);
 }

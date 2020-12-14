@@ -27,4 +27,10 @@ public class Beverage {
     @NotNull
     @Column(nullable = false)
     String image;
+
+    @NotNull
+    @Column(nullable = false)
+    String ean;
+
+
 }
