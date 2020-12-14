@@ -11,6 +11,6 @@ public interface UserService {
     List<User> findAll();
     List<User> findAllByFilter(String filter);
     User deleteByEmail(String email);
-    User saveBusiness();
+    User saveUser( User user);
 
 }

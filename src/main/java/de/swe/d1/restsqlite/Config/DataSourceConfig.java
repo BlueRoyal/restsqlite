@@ -12,7 +12,7 @@ public class DataSourceConfig {
     public DataSource datasource() {
         return DataSourceBuilder.create()
                 .driverClassName("org.sqlite.JDBC")
-                .url("jdbc:sqlite:memory:myDb?cache=shared")
+                .url("jdbc:sqlite:mydb.db")
                 .username("sa")
                 .password("sa")
                 .build();

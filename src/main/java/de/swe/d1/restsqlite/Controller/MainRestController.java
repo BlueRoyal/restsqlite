@@ -4,6 +4,9 @@ import de.swe.d1.restsqlite.Models.Beverage;
 import de.swe.d1.restsqlite.Models.Business;
 import de.swe.d1.restsqlite.Models.Rating;
 import de.swe.d1.restsqlite.Models.User;
+import de.swe.d1.restsqlite.Service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +22,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/cybersommelie")
 public class MainRestController {
+    @Autowired
+    private UserService userService;
 
     // User Exists?
     @RequestMapping(value="/user/get/{parameter}", method = RequestMethod.GET)
@@ -51,10 +56,11 @@ public class MainRestController {
 
     //Neuen Benutzer anlegen
     // BCrypt
-    @RequestMapping(value = "/user/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/user/add", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     User saveUser(@RequestBody User user){
         //TODO CODE HERE
-        return new User();
+
+       return userService.saveUser(user);
     }
 
     //Getränk hinzufügen
