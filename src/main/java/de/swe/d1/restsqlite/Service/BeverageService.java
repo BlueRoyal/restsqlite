@@ -1,8 +1,5 @@
 package de.swe.d1.restsqlite.Service;
-
 import de.swe.d1.restsqlite.Models.Beverage;
-
-
 import java.util.List;
 
 public interface BeverageService {

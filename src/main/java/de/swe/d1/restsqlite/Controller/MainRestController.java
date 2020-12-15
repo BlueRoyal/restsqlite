@@ -23,6 +23,7 @@ import java.util.List;
 
 
 @RestController
+
 @RequestMapping("/cybersommelie")
 public class MainRestController {
     @Autowired
@@ -34,43 +35,43 @@ public class MainRestController {
     @Autowired
     private BeverageService beverageService;
 
-
+    @CrossOrigin
     @RequestMapping(value="/user/getAll", method = RequestMethod.GET)
     public List<User> getAllUser(){
        return userService.findAll();
     }
-
+    @CrossOrigin
     @RequestMapping(value="/beverage/getAll", method = RequestMethod.GET)
     public List<Beverage> getAllBeverage(){
       return beverageService.findAll();
     }
-
+    @CrossOrigin
     @RequestMapping(value="/business/getAll", method = RequestMethod.GET)
     public List<Business> getAllBusiness(){
       return businessService.findAll();
     }
-
+    @CrossOrigin
     @RequestMapping(value="/rating/getAll", method = RequestMethod.GET)
     public List<Rating> getAllRating(){
         return ratingService.findAll();
     }
-
+    @CrossOrigin
     @RequestMapping(value="/user/get/{parameter}", method = RequestMethod.GET)
     public List<User> getUser(@PathVariable("parameter") String parameter){
        return userService.findAllByFilter(parameter);
 
     }
-
+    @CrossOrigin
     @RequestMapping(value="/beverage/get/{parameter}", method = RequestMethod.GET)
     public List<Beverage> getBeverage(@PathVariable("parameter") String parameter){
         return  beverageService.findAllByFilter(parameter);
     }
-
+    @CrossOrigin
     @RequestMapping(value="/business/get/{parameter}", method = RequestMethod.GET)
     public List<Business> getBusiness(@PathVariable("parameter") String parameter){
         return businessService.findAllByFilter(parameter);
     }
-
+    @CrossOrigin
     @RequestMapping(value="/rating/get/{parameter}", method = RequestMethod.GET)
     public List<Rating> getRating(@PathVariable("parameter") String parameter){
         return ratingService.findAllByFilter(parameter);
@@ -78,24 +79,28 @@ public class MainRestController {
 
 
     // BCrypt password
+    @CrossOrigin
     @RequestMapping(value = "/user/add", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     User saveUser(@RequestBody User user){
        return userService.saveUser(user);
     }
 
     //Getränk hinzufügen
+    @CrossOrigin
     @RequestMapping(value = "/beverage/add", method = RequestMethod.POST)
     Beverage saveBeverage(@RequestBody Beverage beverage){
       return beverageService.saveBeverage(beverage);
     }
 
     //Geschäft hinzufügen
+    @CrossOrigin
     @RequestMapping(value = "/business/add", method = RequestMethod.POST)
     Business saveBusiness(@RequestBody Business business){
         return businessService.saveBusiness(business);
     }
 
     //Geschäft hinzufügen
+    @CrossOrigin
     @RequestMapping(value = "/rating/add", method = RequestMethod.POST)
     Rating saveRating(@RequestBody Rating rating){
         return ratingService.saveRating(rating);
