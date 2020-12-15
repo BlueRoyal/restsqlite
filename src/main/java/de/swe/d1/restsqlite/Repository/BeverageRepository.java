@@ -15,7 +15,6 @@ public interface BeverageRepository extends JpaRepository<Beverage, Integer> {
             nativeQuery = true)
     List<Beverage> findAllByFilter( String parameter);
 
-    String deleteByEmail( String email);
 
 
 }
