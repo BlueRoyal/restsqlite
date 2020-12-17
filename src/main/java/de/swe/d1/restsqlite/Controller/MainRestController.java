@@ -87,7 +87,7 @@ public class MainRestController {
 
     //Getränk hinzufügen
     @CrossOrigin
-    @RequestMapping(value = "/beverage/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/beverage/add", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
     Beverage saveBeverage(@RequestBody Beverage beverage){
       return beverageService.saveBeverage(beverage);
     }
@@ -106,6 +106,35 @@ public class MainRestController {
         return ratingService.saveRating(rating);
     }
 
+
+
+    ///update
+    @CrossOrigin
+    @RequestMapping(value = "/user/update", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    void updateUser(@RequestBody User user){
+
+    }
+
+    //Getränk hinzufügen
+    @CrossOrigin
+    @RequestMapping(value = "/beverage/update", method = RequestMethod.POST)
+    Beverage updateBeverage(@RequestBody Beverage beverage){
+        return null;//beverageService.updateBeverage(beverage);
+    }
+
+    //Geschäft hinzufügen
+    @CrossOrigin
+    @RequestMapping(value = "/business/update", method = RequestMethod.POST)
+    Business updateBusiness(@RequestBody Business business){
+        return null;// businessService.updateBusiness(business);
+    }
+
+    //Geschäft hinzufügen
+    @CrossOrigin
+    @RequestMapping(value = "/rating/update", method = RequestMethod.POST)
+    Rating updateRating(@RequestBody Rating rating){
+        return null;//return ratingService.updateRating(rating);
+    }
 
     //Löschmethoden ? Wers braucht
 

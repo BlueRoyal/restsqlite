@@ -13,15 +13,15 @@ public class Rating {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer rating_id;
+    public Integer rating_id;
 
     @NotNull
     @Column(nullable = false)
-    private String text;
+    public String text;
 
     @NotNull
     @Column(nullable = false)
-    private double rating;
+    public double rating;
 
     //Getränke
    /* @ManyToOne( cascade = CascadeType.ALL)

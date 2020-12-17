@@ -11,23 +11,23 @@ import java.util.List;
 public class Business {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer business_id;
+    public Integer business_id;
 
     @NotNull
     @Column(nullable = false)
-    private String name;
+    public String name;
 
     @NotNull
     @Column(nullable = false)
-    private String adress;
+    public String adress;
 
     @NotNull
     @Column(nullable = false)
-    private String times;
+    public String times;
 
     @NotNull
     @Column(nullable = false)
-    private String description;
+    public String description;
 
 
     //Bewertungen

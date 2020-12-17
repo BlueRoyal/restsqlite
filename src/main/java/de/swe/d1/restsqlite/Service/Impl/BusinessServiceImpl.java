@@ -32,4 +32,9 @@ public class BusinessServiceImpl implements BusinessService {
     public Business saveBusiness( Business business) {
         return businessRepository.save(business);
     }
+
+    @Override
+    public Business updateBusiness(Business business) {
+        return null;
+    }
 }

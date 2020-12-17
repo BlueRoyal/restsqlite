@@ -32,4 +32,9 @@ public class RatingServiceImpl implements RatingService {
     public Rating saveRating(Rating rating) {
         return ratingRepository.save(rating);
     }
+
+    @Override
+    public Rating updateRating(Rating rating) {
+        return null;
+    }
 }

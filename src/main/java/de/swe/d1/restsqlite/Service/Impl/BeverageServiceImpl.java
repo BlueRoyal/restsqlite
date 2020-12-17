@@ -32,4 +32,9 @@ public class BeverageServiceImpl implements BeverageService {
     public Beverage saveBeverage(Beverage beverage) {
         return beverageRepository.save(beverage);
     }
+
+    @Override
+    public Beverage updateBeverage(Beverage beverage) {
+        return null;
+    }
 }

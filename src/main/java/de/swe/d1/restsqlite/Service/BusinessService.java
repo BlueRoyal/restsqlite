@@ -11,4 +11,5 @@ public interface BusinessService {
     List<Business> findAllByFilter( String filter);
     Business deleteByName(String name);
     Business saveBusiness(Business business);
+    Business updateBusiness(Business business);
 }

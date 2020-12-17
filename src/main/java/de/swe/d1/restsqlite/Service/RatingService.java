@@ -12,4 +12,5 @@ public interface RatingService {
     List<Rating> findAllByFilter(String filter);
     Rating deleteById(Integer id);
     Rating saveRating(Rating rating);
+    Rating updateRating(Rating rating);
 }

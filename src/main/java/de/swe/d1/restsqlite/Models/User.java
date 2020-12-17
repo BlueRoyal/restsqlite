@@ -21,6 +21,10 @@ public class User {
     @Column(nullable = false)
    public String password;
 
+
+    @Column()
+    public Integer type;
+
    // @NotNull
     @Column()
     public String birthday;

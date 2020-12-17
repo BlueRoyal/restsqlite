@@ -12,5 +12,6 @@ public interface UserService {
     List<User> findAllByFilter(String filter);
     User deleteByEmail(String email);
     User saveUser( User user);
+    void updateUser(User user);
 
 }

@@ -10,27 +10,24 @@ public class Beverage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer beverage_id;
+    public Integer beverage_id;
 
-    @NotNull
-    @Column(nullable = false)
-    String name;
+    @Column()
+    public String name;
 
-    @NotNull
-    @Column(nullable = false)
-    String type;
+    @Column()
+    public String type;
 
-    @NotNull
-    @Column(nullable = false)
-    String description;
 
-    @NotNull
-    @Column(nullable = false)
-    String image;
+    @Column()
+    public String description;
 
-    @NotNull
-    @Column(nullable = false)
-    String ean;
+    @Column()
+    public String image;
+
+
+    @Column()
+    public String ean;
 
 
 }

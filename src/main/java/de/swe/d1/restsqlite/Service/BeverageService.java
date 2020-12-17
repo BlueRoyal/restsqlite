@@ -9,5 +9,6 @@ public interface BeverageService {
     List<Beverage> findAllByFilter( String filter);
     void deleteById(Integer id);
     Beverage saveBeverage(Beverage beverage);
+    Beverage updateBeverage(Beverage beverage);
 
 }

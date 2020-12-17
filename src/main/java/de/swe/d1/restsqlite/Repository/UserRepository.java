@@ -17,6 +17,9 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     List<User> findAllByFilter( String parameter);
 
     User deleteByEmail( String email);
+    @Query(value = "SELECT * FROM User u WHERE u.email = ?1",nativeQuery = true)
+    void updateUser(User user);
+
 
 
 }
