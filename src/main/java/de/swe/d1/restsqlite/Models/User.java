@@ -1,8 +1,10 @@
 package de.swe.d1.restsqlite.Models;
 
 import com.sun.istack.NotNull;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
+import java.security.SecureRandom;
 import java.util.List;
 
 @Entity
@@ -28,6 +30,25 @@ public class User {
    // @NotNull
     @Column()
     public String birthday;
+
+    public User() {
+
+    }
+
+    public User(String email, String password, Integer type, String birthday) {
+                BCryptPasswordEncoder bCryptPasswordEncoder =
+                new BCryptPasswordEncoder(10, new SecureRandom());
+                 String encodedPassword = bCryptPasswordEncoder.encode(password);
+        this.email = email;
+        this.password = encodedPassword;
+        this.type = type;
+        this.birthday = birthday;
+
+    }
+
+private void Test(){
+
+}
 
    /* @ManyToOne
     @JoinColumn(name = "business", insertable = false, updatable = false)

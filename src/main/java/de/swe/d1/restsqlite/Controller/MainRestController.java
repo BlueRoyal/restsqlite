@@ -10,6 +10,7 @@ import de.swe.d1.restsqlite.Service.RatingService;
 import de.swe.d1.restsqlite.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ import org.json.JSONObject;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.SecureRandom;
 import java.util.List;
 
 
@@ -72,9 +74,24 @@ public class MainRestController {
         return businessService.findAllByFilter(parameter);
     }
     @CrossOrigin
-    @RequestMapping(value="/rating/get/{parameter}", method = RequestMethod.GET)
-    public List<Rating> getRating(@PathVariable("parameter") String parameter){
-        return ratingService.findAllByFilter(parameter);
+    @RequestMapping(value="/user/check", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+    public String getUser(@RequestBody User user){
+
+
+        System.out.println(user.email);
+        BCryptPasswordEncoder bCryptPasswordEncoder =
+                new BCryptPasswordEncoder(10, new SecureRandom());
+
+        if( userService.findAllByFilter(user.email).size() > 0 ) {
+
+            System.out.println();
+            if (bCryptPasswordEncoder.matches(user.password, userService.findAllByFilter(user.email).get(0).password)) {
+                return "{\"status\":\"" + true + "\", \"msg\":\"Passwort richtig\"}";
+            } else {
+                return "{\"status\":\"" + false + "\", \"msg\":\"Passwort falsch\"}";
+            }
+        }
+        return "{\"status\":\"" + false + "\", \"msg\":\"Passwort falsch\"}";
     }
 
 
@@ -82,7 +99,8 @@ public class MainRestController {
     @CrossOrigin
     @RequestMapping(value = "/user/add", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     User saveUser(@RequestBody User user){
-       return userService.saveUser(user);
+        User save = new User(user.email,user.password,user.type,user.birthday);
+        return userService.saveUser(save);
     }
 
     //Getränk hinzufügen
