@@ -29,5 +29,7 @@ public class Beverage {
     @Column()
     public String ean;
 
-
+    /*@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "business_id")
+    private Business business;*/
 }

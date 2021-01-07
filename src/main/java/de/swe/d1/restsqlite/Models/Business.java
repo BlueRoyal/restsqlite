@@ -35,12 +35,12 @@ public class Business {
     /*@OneToMany
     @JoinColumn(name = "rating", insertable = false, updatable = false)
     private List<Rating> rating;
-
-    //Getränke
-    @OneToMany
-    @JoinColumn(name = "beverage", insertable = false, updatable = false)
-    private List<Beverage> beverage;
 */
+    //Getränke
+    /*@OneToMany(fetch = FetchType.LAZY, mappedBy = "business")
+    //@JoinColumn(name = "beverages", insertable = false, updatable = false)
+    public List<Beverage> beverage;*/
+
 
 }
 
