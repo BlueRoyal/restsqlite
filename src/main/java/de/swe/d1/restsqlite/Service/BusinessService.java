@@ -12,4 +12,5 @@ public interface BusinessService {
     Business deleteByName(String name);
     Business saveBusiness(Business business);
     Business updateBusiness(Business business);
+    void deleteById(Integer id);
 }

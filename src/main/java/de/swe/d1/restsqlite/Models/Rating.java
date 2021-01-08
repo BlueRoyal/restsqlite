@@ -23,6 +23,10 @@ public class Rating {
     @Column(nullable = false)
     public double rating;
 
+    @NotNull
+    @Column(nullable = false)
+    public Integer user_id;
+
     //Getränke
    /* @ManyToOne( cascade = CascadeType.ALL)
     @JoinColumn(name = "beverage", insertable = false, updatable = false)

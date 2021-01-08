@@ -14,7 +14,7 @@ public class Business {
     public Integer business_id;
 
     @NotNull
-    @Column(nullable = false)
+    @Column(nullable = false,unique = true)
     public String name;
 
     @NotNull
@@ -29,6 +29,17 @@ public class Business {
     @Column(nullable = false)
     public String description;
 
+    @NotNull
+    @Column(nullable = false)
+    public String telefon;
+
+    @NotNull
+    @Column(nullable = false)
+    public String website;
+
+    //Hacky
+    @Column()
+    public String beverages;
 
     //Bewertungen
 

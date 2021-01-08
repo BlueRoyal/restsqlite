@@ -18,7 +18,7 @@ import static org.springframework.http.MediaType.*;
 public class UploadController {
 
     //Save the uploaded file to this folder
-    private static String UPLOADED_FOLDER = "F://temp//";
+    private static String UPLOADED_FOLDER =  "..//cyber//assets//assets//images//";  //"F://temp//";
 
     @GetMapping("/up")
     public String index() {

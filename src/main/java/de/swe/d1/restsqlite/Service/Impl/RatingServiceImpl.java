@@ -24,8 +24,8 @@ public class RatingServiceImpl implements RatingService {
     }
 
     @Override
-    public Rating deleteById(Integer id) {
-        return null;
+    public void deleteById(Integer id) {
+        ratingRepository.deleteById(id);
     }
 
     @Override

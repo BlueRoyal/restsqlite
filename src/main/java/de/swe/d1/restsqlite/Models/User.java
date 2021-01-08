@@ -16,7 +16,8 @@ public class User {
     public Integer user_id;
 
     @NotNull
-    @Column(nullable = false)
+
+    @Column(nullable = false, unique = true)
     public String email;
 
     @NotNull

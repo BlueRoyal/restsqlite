@@ -37,4 +37,8 @@ public class BusinessServiceImpl implements BusinessService {
     public Business updateBusiness(Business business) {
         return null;
     }
+    @Override
+    public void deleteById(Integer id) {
+        businessRepository.deleteById(id);
+    }
 }

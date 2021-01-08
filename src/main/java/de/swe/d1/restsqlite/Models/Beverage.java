@@ -12,7 +12,7 @@ public class Beverage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer beverage_id;
 
-    @Column()
+    @Column(unique = true)
     public String name;
 
     @Column()
@@ -26,7 +26,7 @@ public class Beverage {
     public String image;
 
 
-    @Column()
+    @Column(unique = true)
     public String ean;
 
     /*@ManyToOne(fetch = FetchType.LAZY)

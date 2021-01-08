@@ -10,7 +10,7 @@ import java.util.List;
 public interface RatingService {
     List<Rating> findAll();
     List<Rating> findAllByFilter(String filter);
-    Rating deleteById(Integer id);
+    void deleteById(Integer id);
     Rating saveRating(Rating rating);
     Rating updateRating(Rating rating);
 }
