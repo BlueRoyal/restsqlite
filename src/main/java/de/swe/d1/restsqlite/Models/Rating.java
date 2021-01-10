@@ -27,6 +27,12 @@ public class Rating {
     @Column(nullable = false)
     public Integer user_id;
 
+    @Column()
+    public Integer beverage_id;
+
+    @Column()
+    public Integer business_id;
+
     //Getränke
    /* @ManyToOne( cascade = CascadeType.ALL)
     @JoinColumn(name = "beverage", insertable = false, updatable = false)

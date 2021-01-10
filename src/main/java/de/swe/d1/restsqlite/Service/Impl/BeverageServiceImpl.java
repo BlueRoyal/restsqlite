@@ -35,6 +35,37 @@ public class BeverageServiceImpl implements BeverageService {
 
     @Override
     public Beverage updateBeverage(Beverage beverage) {
-        return null;
+        if( beverage.name != ""){
+            beverageRepository.updateName(beverage.beverage_id,beverage.name);
+        }
+        if(beverage.type != "") {
+            beverageRepository.updateType(beverage.beverage_id, beverage.type);
+        }
+        if(beverage.origin != ""){
+            beverageRepository.updateOrigin(beverage.beverage_id,beverage.origin);
+        }
+        if(beverage.ingredients != ""){
+            beverageRepository.updateIngredients(beverage.beverage_id,beverage.ingredients);
+        }
+        if(beverage.art != ""){
+            beverageRepository.updateArt(beverage.beverage_id, beverage.art);
+        }
+        if(beverage.alcohol != 0.0){
+            beverageRepository.updateAlcohol(beverage.beverage_id,beverage.alcohol);
+        }
+        if(beverage.allergenes != null) {
+            beverageRepository.updateAllergenes(beverage.beverage_id, beverage.allergenes);
+        }
+        if(beverage.description != ""){
+            beverageRepository.updateTDescription(beverage.beverage_id,beverage.description);
+        }
+        if(beverage.image != ""){
+            beverageRepository.updateImage(beverage.beverage_id,beverage.image);
+        }
+        if(beverage.ean != ""){
+            beverageRepository.updateEAN(beverage.beverage_id,beverage.ean);
+        }
+
+      return beverage;
     }
 }

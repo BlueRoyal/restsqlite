@@ -18,6 +18,20 @@ public class Beverage {
     @Column()
     public String type;
 
+    @Column()
+    public String art;
+
+    @Column()
+    public String origin;
+
+    @Column()
+    public String ingredients;
+
+    @Column()
+    public double alcohol;
+
+    @Column()
+    public Boolean allergenes;
 
     @Column()
     public String description;
@@ -28,6 +42,8 @@ public class Beverage {
 
     @Column(unique = true)
     public String ean;
+
+
 
     /*@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "business_id")

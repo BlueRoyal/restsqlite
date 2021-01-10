@@ -148,15 +148,16 @@ public class MainRestController {
     ///update
     @CrossOrigin
     @RequestMapping(value = "/user/update", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    void updateUser(@RequestBody User user){
-
+    User updateUser(@RequestBody User user){
+        return userService.updateUser(user);
     }
 
     //Getränk hinzufügen
     @CrossOrigin
     @RequestMapping(value = "/beverage/update", method = RequestMethod.POST)
     Beverage updateBeverage(@RequestBody Beverage beverage){
-        return null;//beverageService.updateBeverage(beverage);
+
+        return beverageService.updateBeverage(beverage);
     }
 
     //Geschäft hinzufügen
