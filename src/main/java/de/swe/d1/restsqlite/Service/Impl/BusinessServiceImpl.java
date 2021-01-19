@@ -35,7 +35,34 @@ public class BusinessServiceImpl implements BusinessService {
 
     @Override
     public Business updateBusiness(Business business) {
-        return null;
+        if( business.name != ""){
+            businessRepository.updateName(business.business_id, business.name);
+        }
+        if( business.adress != ""){
+            businessRepository.updateAdress(business.business_id, business.adress);
+        }
+        if( business.times != ""){
+            businessRepository.updateTimes(business.business_id, business.times);
+        }
+        if( business.description != ""){
+            businessRepository.updateDescription(business.business_id, business.description);
+        }
+        if( business.telefon != ""){
+            businessRepository.updateTele(business.business_id, business.telefon);
+        }
+        if( business.website != null){
+            businessRepository.updateWeb(business.business_id, business.website);
+        }
+        if( business.beverages != null){
+            businessRepository.updateBeverages(business.business_id, business.beverages);
+        }
+        if( business.owner != 0){
+            businessRepository.updateOwner(business.business_id, business.owner);
+        }
+        if( business.image != ""){
+            businessRepository.updateImage(business.business_id, business.image);
+        }
+        return business;
     }
     @Override
     public void deleteById(Integer id) {

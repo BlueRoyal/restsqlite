@@ -24,6 +24,8 @@ public class User {
     @Column(nullable = false)
    public String password;
 
+    @Column
+    public String name;
 
     @Column()
     public Integer type;
@@ -32,11 +34,17 @@ public class User {
     @Column()
     public String birthday;
 
+    @Column()
+    public String favorit_beverage;
+
+    @Column()
+    public String favorit_business;
+
     public User() {
 
     }
 
-    public User(String email, String password, Integer type, String birthday) {
+    public User(String name,String email, String password, Integer type, String birthday, String favorit_business, String favorit_beverage) {
                 BCryptPasswordEncoder bCryptPasswordEncoder =
                 new BCryptPasswordEncoder(10, new SecureRandom());
                  String encodedPassword = bCryptPasswordEncoder.encode(password);
@@ -44,6 +52,9 @@ public class User {
         this.password = encodedPassword;
         this.type = type;
         this.birthday = birthday;
+        this.name = name;
+        this.favorit_beverage = favorit_beverage;
+        this.favorit_business = favorit_business;
 
     }
 

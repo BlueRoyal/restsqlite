@@ -37,9 +37,16 @@ public class Business {
     @Column(nullable = false)
     public String website;
 
+    @Column()
+    public String image;
+
     //Hacky
     @Column()
     public String beverages;
+
+    @NotNull
+    @Column(nullable = false)
+    public int owner;
 
     //Bewertungen
 

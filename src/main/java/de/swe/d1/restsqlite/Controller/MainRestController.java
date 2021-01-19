@@ -100,7 +100,7 @@ public class MainRestController {
     @RequestMapping(value = "/user/add", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     User saveUser(@RequestBody User user){
         try {
-            User save = new User(user.email, user.password, user.type, user.birthday);
+            User save = new User(user.name,user.email, user.password, user.type, user.birthday, user.favorit_business, user.favorit_beverage);
             return userService.saveUser(save);
         }catch(Exception e){
             return new User();
@@ -164,7 +164,9 @@ public class MainRestController {
     @CrossOrigin
     @RequestMapping(value = "/business/update", method = RequestMethod.POST)
     Business updateBusiness(@RequestBody Business business){
-        return null;// businessService.updateBusiness(business);
+
+        return businessService.updateBusiness(business);
+
     }
 
     //Geschäft hinzufügen

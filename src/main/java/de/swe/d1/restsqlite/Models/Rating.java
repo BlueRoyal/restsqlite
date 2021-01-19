@@ -33,6 +33,10 @@ public class Rating {
     @Column()
     public Integer business_id;
 
+    @NotNull
+    @Column(nullable = false)
+    public String timestamp;
+
     //Getränke
    /* @ManyToOne( cascade = CascadeType.ALL)
     @JoinColumn(name = "beverage", insertable = false, updatable = false)

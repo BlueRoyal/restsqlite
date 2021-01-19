@@ -39,6 +39,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User updateUser(User user) {
+
+        if( user.name != ""){
+            userRepository.updateName(user.user_id, user.name);
+        }
         if( user.email != ""){
             userRepository.updateEmail(user.user_id,user.email);
         }
@@ -46,10 +50,18 @@ public class UserServiceImpl implements UserService {
             BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(10, new SecureRandom());
             String encodedPassword = bCryptPasswordEncoder.encode(user.password);
             userRepository.updatePassword(user.user_id, encodedPassword);
+            user.password = encodedPassword;
         }
         if(user.birthday != ""){
             userRepository.updateBirthday(user.user_id, user.birthday);
         }
+        if( user.favorit_beverage != null){
+            userRepository.updateFavBeverages(user.user_id,user.favorit_beverage);
+        }
+        if( user.favorit_business != null){
+            userRepository.updateFavBusiness(user.user_id,user.favorit_business);
+        }
+
         return user;
     }
 
